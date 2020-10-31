@@ -1,0 +1,14 @@
+{{!< default}}
+
+<h1>{{meta_title}}</h1>
+<h1>{{meta_description}}</h1>
+
+
+{{#foreach posts}}
+<a href="{{url}}">
+    <article class="bg-yellow-500">
+        <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM"}}</time>
+        <h1>{{title}}</h1>
+    </article>
+</a>
+{{/foreach}}

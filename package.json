@@ -1,0 +1,54 @@
+{
+  "name": "bleunuit",
+  "version": "1.0.0",
+  "description": "An elegant night blue theme for Ghost blog",
+  "engines": {
+    "ghost-api": "v3"
+  },
+  "scripts": {
+    "dev": "gulp",
+    "zip": "gulp zip",
+    "test": "gscan .",
+    "test:ci": "gscan --fatal --verbose .",
+    "pretest": "gulp build",
+    "preship": "yarn test",
+    "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi"
+  },
+  "keywords": [
+    "ghost",
+    "theme",
+    "dark",
+    "blog",
+    "blue"
+  ],
+  "author": {
+    "name": "Jérémy Halin",
+    "email": "jeremy.halin@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/typography": "^0.2.0",
+    "tailwindcss": "^1.9.6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.1",
+    "cssnano": "^4.1.10",
+    "gscan": "^3.6.0",
+    "gulp": "^4.0.2",
+    "gulp-chmod": "^3.0.0",
+    "gulp-livereload": "^4.0.2",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^5.0.1",
+    "gulp-zip": "^5.0.2",
+    "postcss": "^8.1.4",
+    "postcss-color-function": "^4.1.0",
+    "postcss-custom-properties": "^10.0.0",
+    "postcss-easy-import": "^3.0.0"
+  },
+  "browserslist": [
+    "defaults"
+  ]
+}
