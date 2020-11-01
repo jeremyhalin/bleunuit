@@ -1,14 +1,29 @@
 {{!< default}}
 
-<h1>{{meta_title}}</h1>
-<h1>{{meta_description}}</h1>
 
+<section class="mb-8">
+    <h2 class="text-lg text-gray-700 font-bold mb-2">{{{t "Topics"}}}</h2>
 
-{{#foreach posts}}
-<a href="{{url}}">
-    <article class="bg-yellow-500">
-        <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM"}}</time>
-        <h1>{{title}}</h1>
-    </article>
-</a>
-{{/foreach}}
+    {{#get 'tags' limit='all' include='count.posts' order='count.posts desc'}}
+    {{#foreach tags}}
+        <a href='{{ url }}' class="inline-flex items-center rounded px-2 bg-gray-700" style="background-color: {{accent_color}};">
+            {{ name }}
+        </a>
+    {{/foreach}}
+    {{/get}}
+</section>
+
+<section class="mb-8">
+    <h2 class="text-lg text-gray-700 font-bold mb-2">{{{t "Posts"}}}</h2>
+
+    {{#get "posts" order="published_at desc"}}
+        {{#foreach posts}}
+        <a href="{{url}}" class="block px-2 rounded hover:bg-gray-800">
+            <article class="flex items-baseline">
+                <time class="text-sm text-gray-700 mr-2 lg:mr-4" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM"}}</time>
+                <h1>{{title}}</h1>
+            </article>
+        </a>
+        {{/foreach}}
+    {{/get}}
+</section>
