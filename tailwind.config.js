@@ -57,7 +57,21 @@ module.exports = {
           },
 
           code: {
-            color: theme("colors.gray.300"),
+            color: theme("colors.gray.900"),
+            backgroundColor: theme("colors.gray.300"),
+          },
+
+          "code::before": {
+            content: "",
+            display: "none",
+            paddingLeft: theme("spacing.2"),
+            paddingRight: theme("spacing.2"),
+          },
+          "code::after": {
+            content: "",
+            display: "none",
+            paddingLeft: theme("spacing.2"),
+            paddingRight: theme("spacing.2"),
           },
 
           figcaption: {
