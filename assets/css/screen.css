@@ -1,3 +1,17 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@layer components {
+  .badge-tag {
+    @apply inline-flex items-center rounded px-2;
+  }
+
+  .badge-tag:hover {
+    background-color: currentColor;
+  }
+
+  .badge-tag:hover span {
+    color: white;
+  }
+}

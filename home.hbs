@@ -6,8 +6,8 @@
 
     {{#get 'tags' limit='all' include='count.posts' order='count.posts desc'}}
     {{#foreach tags}}
-        <a href='{{ url }}' class="inline-flex items-center rounded px-2 bg-gray-700" style="background-color: {{accent_color}};">
-            {{ name }}
+        <a href='{{ url }}' class="badge-tag" style="border: 1px solid {{accent_color}}; color: {{accent_color}};">
+            <span>{{ name }}</span>
         </a>
     {{/foreach}}
     {{/get}}
@@ -20,7 +20,7 @@
         {{#foreach posts}}
         <a href="{{url}}" class="block px-2 rounded hover:bg-gray-800">
             <article class="flex items-baseline">
-                <time class="text-sm text-gray-700 mr-2 lg:mr-4" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM"}}</time>
+                <time class="text-sm text-gray-700 mr-2 w-16 lg:mr-4" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM"}}</time>
                 <h1>{{title}}</h1>
             </article>
         </a>
