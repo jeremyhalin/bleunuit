@@ -1,13 +1,9 @@
 {{!< default}}
 
-<section>
-    <h2>{{{t "section.title.posts"}}}</h2>
-    {{#foreach posts}}
-    <a href="{{url}}">
-        <article class="flex">
-            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM"}}</time>
-            <h1>{{title}}</h1>
-        </article>
-    </a>
-    {{/foreach}}
-</section>
+{{#tag}}
+    <div class="prose dark:prose-dark">
+        <h1>{{name}}</h1>
+    </div>
+{{/tag}}
+
+{{> "posts-list" }}

@@ -4,14 +4,20 @@
 
 @layer components {
   .badge-tag {
-    @apply inline-flex items-center rounded px-2;
+    @apply inline-flex items-center rounded-full px-2 pb-1;
   }
 
   .badge-tag:hover {
     background-color: currentColor;
+    color: white;
   }
 
-  .badge-tag:hover span {
-    color: white;
+  .article-link svg,
+  .article-link {
+    @apply transition ease-in-out duration-300;
+  }
+
+  .article-link:hover svg {
+    @apply opacity-100;
   }
 }

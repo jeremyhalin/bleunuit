@@ -1,29 +1,37 @@
 {{!< default}}
 
+{{#get "posts" include="tags" order="published_at desc"}}
+    {{> "posts-list" }}
+{{/get}}
 
 <section class="mb-8">
     <h2 class="text-lg text-gray-700 font-bold mb-2">{{{t "Topics"}}}</h2>
 
     {{#get 'tags' limit='all' include='count.posts' order='count.posts desc'}}
-    {{#foreach tags}}
-        <a href='{{ url }}' class="badge-tag" style="border: 1px solid {{accent_color}}; color: {{accent_color}};">
-            <span>{{ name }}</span>
-        </a>
-    {{/foreach}}
-    {{/get}}
-</section>
+        {{!-- {{#foreach tags}}
+            <a href='{{ url }}' class="inline-flex items-center rounded-full px-2 pb-1 font-semibold bg-gray-700 text-gray-900" style="background-color: {{accent_color}};">
+                {{ name }}
+            </a>
+        {{/foreach}} --}}
 
-<section class="mb-8">
-    <h2 class="text-lg text-gray-700 font-bold mb-2">{{{t "Posts"}}}</h2>
-
-    {{#get "posts" order="published_at desc"}}
-        {{#foreach posts}}
-        <a href="{{url}}" class="block px-2 rounded hover:bg-gray-800">
-            <article class="flex items-baseline">
-                <time class="text-sm text-gray-700 mr-2 w-16 lg:mr-4" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM"}}</time>
-                <h1>{{title}}</h1>
-            </article>
-        </a>
+        <div class="grid grid-cols-3 gap-4">
+        {{#foreach tags}}
+            <a href="{{url}}" class="block border rounded" style="border-color: {{accent_color}}">
+                <div class="bg-gray-800 p-2 overflow-hidden rounded">
+                    <img class="h-32 w-auto object-contain object-center mx-auto "
+                        srcset="{{img_url feature_image size="s"}} 300w,
+                                {{img_url feature_image size="m"}} 600w,
+                                {{img_url feature_image size="l"}} 1000w,
+                                {{img_url feature_image size="xl"}} 2000w"
+                        sizes="(max-width: 1000px) 400px, 700px"
+                        src="{{img_url feature_image size="m"}}"
+                        alt="{{name}}"
+                    />
+                </div>
+                <h1 class="text-gray-500 font-bold text-center py-2">{{name}}</h1>
+                <p>{{description}}</p>
+            </a>
         {{/foreach}}
+        </div>
     {{/get}}
 </section>
