@@ -20,4 +20,11 @@
   .article-link:hover svg {
     @apply opacity-100;
   }
+
+  .stretched-link::after {
+    @apply absolute inset-0 pointer-events-auto;
+    z-index: 1;
+    content: "";
+    background-color: rgba(0, 0, 0, 0);
+  }
 }

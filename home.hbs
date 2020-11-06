@@ -1,5 +1,34 @@
 {{!< default}}
 
+{{#get "posts" limit="all" filter="featured:true"}}
+    {{#if posts}}
+        <section class="mb-8">
+            <h2 class="text-lg text-gray-700 font-bold mb-2">{{{t "Featured posts"}}}</h2>
+
+            <div class="flex flex-row overflow-x-auto flex-grow -mx-2 px-2">
+                {{#foreach posts}}
+                    <article class="w-3/4 sm:w-1/2 mb-4 mr-2 flex-shrink-0 bg-gray-800 rounded relative overflow-hidden h-56">
+                        <img class="absolute rounded object-cover w-full h-full"
+                            srcset="{{img_url feature_image size="s"}} 300w,
+                                    {{img_url feature_image size="m"}} 600w,
+                                    {{img_url feature_image size="l"}} 1000w,
+                                    {{img_url feature_image size="xl"}} 2000w"
+                            sizes="(max-width: 1000px) 400px, 700px"
+                            src="{{img_url feature_image size="m"}}"
+                            alt="{{title}}"
+                        />
+                        <div class="flex relative h-full justify-start items-end">
+                            <a href="{{slug}}" class="p-4 z-10 w-full stretched-link" title="{{{t "Read"}}}"><h1>{{title}}</h1></a>
+                            
+                            <div class="bg-gray-900 opacity-50 w-full h-full absolute z-0"></div>
+                        </div>
+                    </article>
+                {{/foreach}}
+            </div>
+        </section>
+    {{/if}}
+{{/get}}
+
 {{#get "posts" include="tags" order="published_at desc"}}
     {{> "posts-list" }}
 {{/get}}
@@ -8,30 +37,10 @@
     <h2 class="text-lg text-gray-700 font-bold mb-2">{{{t "Topics"}}}</h2>
 
     {{#get 'tags' limit='all' include='count.posts' order='count.posts desc'}}
-        {{!-- {{#foreach tags}}
-            <a href='{{ url }}' class="inline-flex items-center rounded-full px-2 pb-1 font-semibold bg-gray-700 text-gray-900" style="background-color: {{accent_color}};">
+        {{#foreach tags}}
+            <a href='{{ url }}' class="inline-flex items-center rounded-full px-2 font-semibold bg-gray-700 text-gray-900 text-opacity-75 hover:text-opacity-50" style="background-color: {{accent_color}};">
                 {{ name }}
             </a>
-        {{/foreach}} --}}
-
-        <div class="grid grid-cols-3 gap-4">
-        {{#foreach tags}}
-            <a href="{{url}}" class="block border rounded" style="border-color: {{accent_color}}">
-                <div class="bg-gray-800 p-2 overflow-hidden rounded">
-                    <img class="h-32 w-auto object-contain object-center mx-auto "
-                        srcset="{{img_url feature_image size="s"}} 300w,
-                                {{img_url feature_image size="m"}} 600w,
-                                {{img_url feature_image size="l"}} 1000w,
-                                {{img_url feature_image size="xl"}} 2000w"
-                        sizes="(max-width: 1000px) 400px, 700px"
-                        src="{{img_url feature_image size="m"}}"
-                        alt="{{name}}"
-                    />
-                </div>
-                <h1 class="text-gray-500 font-bold text-center py-2">{{name}}</h1>
-                <p>{{description}}</p>
-            </a>
         {{/foreach}}
-        </div>
     {{/get}}
 </section>
