@@ -2,5 +2,7 @@
   "section.title.featured-posts": "Featured posts",
   "section.title.tags": "Tags",
   "section.title.posts": "Posts",
-  "link.read": "Read"
+  "link.read": "Read",
+  "reading.one.minute": "1 minute reading",
+  "reading.minutes": "% minutes reading"
 }

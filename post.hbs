@@ -4,8 +4,10 @@
     <article class="prose lg:prose-lg dark:prose-dark mx-auto">
         <h1>{{title}}</h1>
         
-        {{> "bullet-tag" color=primary_tag.accent_color}}
-        <small>{{reading_time}}</small>
+        <small>
+            {{> "bullet-tag" color=primary_tag.accent_color}} {{tags}} - 
+            {{reading_time minute="reading.one.minute" minutes="reading.minutes"}}
+        </small>
         <img class="rounded"
             srcset="{{img_url feature_image size="s"}} 300w,
                     {{img_url feature_image size="m"}} 600w,

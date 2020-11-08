@@ -1,18 +1,17 @@
 {{!< default}}
 
 {{#tag}}
-  <header>
-  	{{#if feature_image}}
-    	<img src="{{feature_image}}" alt="{{name}}" />
-    {{/if}}
-  </header>
-
-  <section class="author-profile">
-  	<h1>{{name}}</h1>
+  <div class="text-center">
+    <h1 class="inline-block mx-auto text-center text-4xl font-bold border-b-4" style="border-color: {{accent_color}}">{{name}}</h1>
     {{#if description}}
-      <h2>{{description}}</h2>
+      <p>{{description}}</p>
     {{/if}}
-  </section>
+  </div>
 {{/tag}}
 
-{{> "posts-list"}}
+{{#foreach posts}}
+    <div class="post post-date-{{date format="M"}}">
+        <div class="post-label text-lg font-bold uppercase text-gray-700 my-4">{{date format="MMMM YYYY"}}</div>
+        {{> 'post-list-item'}}
+    </div>
+{{/foreach}}
