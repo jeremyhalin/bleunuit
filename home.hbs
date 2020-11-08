@@ -3,7 +3,7 @@
 {{#get "posts" limit="all" filter="featured:true"}}
     {{#if posts}}
         <section class="mb-8">
-            <h2 class="text-lg text-gray-700 font-bold mb-2">{{{t "Featured posts"}}}</h2>
+            <h2>{{{t "section.title.featured-posts"}}}</h2>
 
             <div class="flex flex-row overflow-x-auto flex-grow -mx-2 px-2">
                 {{#foreach posts}}
@@ -18,7 +18,7 @@
                             alt="{{title}}"
                         />
                         <div class="flex relative h-full justify-start items-end">
-                            <a href="{{slug}}" class="p-4 z-10 w-full stretched-link" title="{{{t "Read"}}}"><h1>{{title}}</h1></a>
+                            <a href="{{slug}}" class="p-4 z-10 w-full stretched-link" title="{{{t "link.title.read"}}}"><h1>{{title}}</h1></a>
                             
                             <div class="bg-gray-900 opacity-50 w-full h-full absolute z-0"></div>
                         </div>
@@ -34,12 +34,12 @@
 {{/get}}
 
 <section class="mb-8">
-    <h2 class="text-lg text-gray-700 font-bold mb-2">{{{t "Topics"}}}</h2>
+    <h2>{{{t "section.title.tags"}}}</h2>
 
     {{#get 'tags' limit='all' include='count.posts' order='count.posts desc'}}
         {{#foreach tags}}
-            <a href='{{ url }}' class="inline-flex items-center rounded-full px-2 font-semibold bg-gray-700 text-gray-900 text-opacity-75 hover:text-opacity-50" style="background-color: {{accent_color}};">
-                {{ name }}
+            <a href='{{ url }}' class="inline-flex font-semibold text-opacity-75 border-b-2 mr-4 mb-4 hover:text-opacity-50" style="border-color: {{accent_color}};">
+                {{ name }} <span class="ml-2 text-gray-600">{{count.posts}}</span>
             </a>
         {{/foreach}}
     {{/get}}

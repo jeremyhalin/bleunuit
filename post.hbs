@@ -3,7 +3,10 @@
 {{#post}}
     <article class="prose lg:prose-lg dark:prose-dark mx-auto">
         <h1>{{title}}</h1>
-        <img class="post-image"
+        
+        {{> "bullet-tag" color=primary_tag.accent_color}}
+        <small>{{reading_time}}</small>
+        <img class="rounded"
             srcset="{{img_url feature_image size="s"}} 300w,
                     {{img_url feature_image size="m"}} 600w,
                     {{img_url feature_image size="l"}} 1000w,
@@ -14,6 +17,9 @@
         />
         {{content}}
     </article>
-{{/post}}
 
-{{#if twitter}}<a href="{{twitter_url}}">Follow me on twitter</a>{{/if}}
+    {{#author}}
+        {{name}}
+        {{#if twitter}}<a href="{{twitter_url}}">Follow me on twitter</a>{{/if}}
+    {{/author}}
+{{/post}}

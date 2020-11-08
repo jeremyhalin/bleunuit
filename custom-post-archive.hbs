@@ -1,0 +1,12 @@
+{{!-- template: post-archive | 2019.05.28--}}
+
+{{!< default}}
+
+{{#get "posts" limit="all" include="tags" order="published_at desc"}}
+    {{#foreach posts}}
+        <div class="post post-date-{{date format="M"}}">
+            <div class="post-label text-lg font-bold uppercase text-gray-700 my-4">{{date format="MMMM YYYY"}}</div>
+            {{> 'post-list-item'}}
+        </div>
+    {{/foreach}}
+{{/get}}

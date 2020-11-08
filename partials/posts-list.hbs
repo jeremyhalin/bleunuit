@@ -1,14 +1,7 @@
 <section class="mb-8">
-    <h2 class="text-lg text-gray-700 font-bold mb-2">{{{t "Posts"}}}</h2>
+    <h2>{{{t "section.title.posts"}}}</h2>
 
     {{#foreach posts}}
-    <a href="{{url}}" class="article-link block px-2 py-2 rounded hover:bg-gray-800">
-        <article class="flex items-center">
-            <time class="flex-shrink-0 text-sm text-gray-700 mr-2 w-16 lg:mr-4" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM"}}</time>
-            {{> "bullet-tag" color=primary_tag.accent_color}}
-            <h1 class="truncate">{{title}}</h1>
-            <svg xmlns="http://www.w3.org/2000/svg" class="ml-auto opacity-0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </article>
-    </a>
+        {{> "post-list-item" }}
     {{/foreach}}
 </section>

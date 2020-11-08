@@ -1,3 +1,6 @@
 {
-  "section.title.posts": "Posts"
+  "section.title.featured-posts": "Featured posts",
+  "section.title.tags": "Tags",
+  "section.title.posts": "Posts",
+  "link.read": "Read"
 }

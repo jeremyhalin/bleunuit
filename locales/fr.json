@@ -1,3 +1,6 @@
 {
-  "section.title.posts": "Articles"
+  "section.title.featured-posts": "Articles mis en avant",
+  "section.title.tags": "Tags",
+  "section.title.posts": "Articles récents",
+  "link.read": "Lire"
 }
