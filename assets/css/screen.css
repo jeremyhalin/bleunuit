@@ -46,4 +46,15 @@
   section h2 {
     @apply text-gray-700 font-bold uppercase mb-2;
   }
+
+  .kg-embed-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .kg-embed-card .fluid-width-video-wrapper {
+    margin: 0;
+  }
 }
